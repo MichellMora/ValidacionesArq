@@ -116,7 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="login-form">
 					<form action="personaEditarForm1.htm" method="post">
                                             <input type="text" name="identificacion" placeholder="Identificación" required>
-                                            
+                                           
+
                                             <input type="submit" value="CONSULTAR">
 					</form>
 				</div>				

@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="registration">
 		<div class="container">
 			<div class="signin-form profile">
-				<h3>:: Registro ::</h3>
+				<h3>:: Registrar Persona ::</h3>
 				
 				<div class="login-form">
 					<form action="personaRegistrar.htm" method="post">
@@ -127,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <input type="text" name="telefono" placeholder="Telefono" required="">
                                             <input type="email" name="email" placeholder="E-mail" required="">
 
-                                            <input type="submit" value="REGISTER">
+                                            <input type="submit" value="REGISTRAR">
 					</form>
 				</div>
 				<p>${mensaje}</p>

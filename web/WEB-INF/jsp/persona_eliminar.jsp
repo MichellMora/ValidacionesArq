@@ -112,12 +112,47 @@ $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 <div class="registration">
 <div class="container">
 <div class="signin-form profile">
-<h3>:: Registro ::</h3>
+<h3>:: Consultar Usuario ::</h3>
 <div class="login-form">
-<form action="personaEliminar1.htm" method="post">
-                                         <input type="text" name="identificacion" placeholder="Identificación" required>
+    <form action="personaEliminar1.htm" method="post">
+        
+        <input type="text" name="identificacion" placeholder="Identificación" required>
+        <input type="submit" value="CONSULTAR">
+    </form>
+</div>				
+</div>                    
+
+    <div class="signin-form profile">
+				<h3>:: ¿Desea Eliminar los datos? ::</h3>
+				
+				<div class="login-form">
+					<form action="personaEliminar2.htm" method="post">
+                                            <input type="text" name="identificacion" value="${listaPersonas.get(0).getIdentificacion()}" >
+                                            <input type="text" name="nombre1" value="${listaPersonas.get(0).getNombre1()}" >
+                                            <input type="text" name="nombre2" value="${listaPersonas.get(0).getNombre2()}" >
+                                            <input type="text" name="apellido1" value="${listaPersonas.get(0).getApellido1()}" >
+                                            <input type="text" name="apellido2" value="${listaPersonas.get(0).getApellido2()}" >
+                                            <input type="text" name="genero" value="${listaPersonas.get(0).getGenero()}" >
+                                            <input type="text" name="tipop" value="${listaPersonas.get(0).getTipoP()}" >
+                                            <input type="date" name="fecha" value="${listaPersonas.get(0).getfNacimiento()}" >
+                                            <input type="text" name="telefono" value="${listaPersonas.get(0).getTelef()}" >
+                                            <input type="email" name="email" value="${listaPersonas.get(0).getEmail()}" >
+
+                                            
+                                            <input type="submit" value="ELIMINAR">
+                                        </form>
+                                            
+					
+				</div>
+				<p>${mensaje}</p>
+			</div>
+        
                                          
-                                         <input type="submit" value="ELIMINAR"
+                        
+</div>                        
+		</div>
+	</div>
+</div>
 </form>
 </div>
 <p>${mensaje}</p>
