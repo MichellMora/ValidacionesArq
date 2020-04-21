@@ -115,6 +115,53 @@ public class PersonaMySQLDAO implements PersonaDAO{
             Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando editarPersona...");
             
             pstmt = con.prepareStatement("UPDATE persona "
+                    + " SET "
+                    /*
+                    identificacion, nombre_1,nombre_2, "
+                    + " apellido_1, apellido_2, genero, telefono, email, "
+                    + " fecha_nacimiento, tipo_persona
+                    */
+                    + " identificacion=?"
+                    + " , nombre_1=?"
+                    + " , nombre_2=?"
+                    + ", apellido_1=?"
+                    + ", apellido_2=?"
+                    +", genero=?"
+                    +", telefono=?"
+                    +",email=?"
+                    +", fecha_nacimiento=?"
+                    +", tipo_persona=?"
+                    + " WHERE identificacion = "+ p.getIdentificacion());
+                        
+             pstmt.setString(1, p.getIdentificacion());
+            pstmt.setString(2, p.getNombre1());
+            pstmt.setString(3, p.getNombre2());
+            pstmt.setString(4, p.getApellido1());
+            pstmt.setString(5, p.getApellido2());
+            pstmt.setString(6, p.getGenero());
+            pstmt.setString(7, p.getTelef());
+            pstmt.setString(8, p.getEmail());
+            pstmt.setString(9, p.getfNacimiento());
+            pstmt.setString(10, p.getTipoP());
+            
+            pstmt.executeUpdate();
+            
+            con.close();
+            
+            respuesta = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return respuesta;
+        
+      /*  PreparedStatement pstmt = null;
+        boolean respuesta = false;
+        try {            
+            
+            Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando editarPersona...");
+            
+            pstmt = con.prepareStatement("UPDATE persona "
                     + "SET "
                     +" identificacion=?" 
                     +" , nombre_1=?"
@@ -149,7 +196,7 @@ public class PersonaMySQLDAO implements PersonaDAO{
         }
         
         
-        return respuesta;
+        return respuesta;*/
 
     }
     
