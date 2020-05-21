@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- Slide Show -->
  <!--carrusel-->
  <br> <br>
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color: greenyellow">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -102,19 +102,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
+        
       <div class="item active">
+        <center><h1 style="color: white">Haz parte del grupo de monitores de la UCC</h1></center>
         <img src="images/p.jpg"  alt="Image">
         <div class="carousel-caption">
         </div>      
       </div>
 	
 	<div class="item">
+        <center><h1 style="color:white">Inscribete por esta página</h1></center>
         <img src="images/s.jpg" alt="Image">
         <div class="carousel-caption">
         </div>      
       </div>
 
       <div class="item">
+        <center><h1 style="color: white">Comparte tus conocimientos</h1></center>
         <img src="images/t.jpg" alt="Image">
         <div class="carousel-caption">
         </div>      
