@@ -216,4 +216,48 @@ public class PersonaMySQLDAO implements PersonaDAO{
         return respuesta;
 
     }
+   
+   public ArrayList<Persona> monitoriaIng(Persona p, Connection con)
+    {
+        
+        ArrayList<Persona> datos = new ArrayList();
+        
+        Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarPersona...");
+        
+        try {
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery ("select identificacion, nombre_1,nombre_2, "
+                    + " apellido_1, apellido_2, genero, telefono, email, "
+                    + " fecha_nacimiento, tipo_persona"
+                    + " from persona "
+                    + " where "
+                    + " identificacion='" + p.getIdentificacion()+"'");
+            
+            while (rs.next())
+            { 
+                Persona per = new Persona();
+                per.setIdentificacion(rs.getString(1));
+                per.setNombre1(rs.getString(2));
+                per.setNombre2(rs.getString(3));
+                per.setApellido1(rs.getString(4));
+                per.setApellido2(rs.getString(5));
+                per.setGenero(rs.getString(6));
+                per.setTelef(rs.getString(7));
+                per.setEmail(rs.getString(8));
+                per.setfNacimiento(rs.getString(9));
+                per.setTipoP(rs.getString(10));
+                
+                datos.add(per);
+                
+            }
+            
+            Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarPersona fin...{0}", datos.size());
+            
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return datos;
+    }
 }

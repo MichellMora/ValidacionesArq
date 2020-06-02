@@ -261,6 +261,44 @@ public class PersonaControllers implements Controller {
        return "persona_eliminar";
     }
     
+    
+       @RequestMapping(method = RequestMethod.GET, value = "monitoriaIngreso.htm")
+    public String processSubmit20(HttpServletRequest req, SessionStatus status,ModelMap model) 
+    {      
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.INFO, "Ejecutando processSubmit2...");
+        return "monitorias";
+    } 
+    
+@RequestMapping(method = RequestMethod.POST, value = "monitoriaIngresoForm.htm")
+    public String processSubmit30(HttpServletRequest req, SessionStatus status,ModelMap model) 
+    {
+
+        PersonaMySQLDAO pDao = new PersonaMySQLDAO();
+        
+    
+        Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+      
+        String ident = req.getParameter("identificacion");
+        
+        Persona p = new Persona();
+       
+        p.setIdentificacion(ident);
+    
+            
+        List<Persona> datos = pDao.consultarPersona(p, MySqlDataSource.getConexionBD());
+
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datos.size());
+        
+        model.put("listaPersonas", datos);
+        if (datos.size() > 0)
+            model.put("mensaje", "En la siguiente tabla se muestran los datos de la persona identificada con la cedula numero "+ p.getIdentificacion() + datos.size());
+        else
+            model.put("mensaje", "La persona con la cedula numero " + p.getIdentificacion()+ " no se encuentra registrada en la base de datos");
+        
+        return "monitorias";
+    }   
+    
+    
     @Override
     public String value() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

@@ -1,4 +1,6 @@
-<!--<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
@@ -8,8 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Monitorias-Inicio</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Inscripción Monitorias</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Hosting City Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -39,16 +40,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
-<link href='css/immersive-slider.css' rel='stylesheet' type='text/css'>
-<!-- pricing -->
-<link rel="stylesheet" href="css/jquery.flipster.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/site.css">
-
+</head>
 <body>
-
-<!-- Navigation -->
+	<!-- header -->
 
 <div class="header">
     <div class="container">
@@ -95,53 +89,84 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</nav>
     </div>
 </div>
-<!-- Slide Show -->
- <!--carrusel-->
- <br> <br>
- <div id="myCarousel" class="carousel slide" data-ride="carousel" style="background-color: greenyellow">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-	  <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+	<!-- //header -->
+	<!-- about-heading -->
+	<div class="about-heading">
+		<h2>Inscribir <span>Monitorias</span></h2>
+	</div>
+	<!-- //about-heading -->
+	<div class="registration">
+		<div class="container">
+			<div class="signin-form profile">
+				<h3>:: Consultar ::</h3>
+				
+				<div class="login-form">
+					<form action="monitoriaIngresoForm.htm" method="post">
+                                            <input type="text" name="identificacion" placeholder="Identificación" required>
+                                            <!-- <input type="text" name="nombre1" placeholder="Nombre 1" required> -->
 
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-        
-      <div class="item active">
-        <center><h1 style="color: white">Haz parte del grupo de monitores de la UCC</h1></center>
-        <img src="images/p.jpg"  alt="Image">
-        <div class="carousel-caption">
-        </div>      
-      </div>
-	
-	<div class="item">
-        <center><h1 style="color:white">Inscribete por esta pÃ¡gina</h1></center>
-        <img src="images/s.jpg" alt="Image">
-        <div class="carousel-caption">
-        </div>      
-      </div>
-
-      <div class="item">
-        <center><h1 style="color: white">Comparte tus conocimientos</h1></center>
-        <img src="images/t.jpg" alt="Image">
-        <div class="carousel-caption">
-        </div>      
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-  <!--carrusel-->
-
-</body>
+                                            <input type="submit" value="CONSULTAR">
+					</form>
+				</div>
+				<p>${mensaje}</p>
+			</div>
+                     <div class="table-responsive">                                                               
+                            <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                                <thead>       
+                                    <tr>
+                                       <th>Identificación</th>
+                                       <th>Nombre 1</th>
+                                       <th>Nombre 2</th>
+                                       <th>Apellido 1</th>
+                                       <th>Apellido 2</th>
+                                       <th>Genero</th>
+                                       <th>Telefono</th>
+                                       <th>E-mail</th>
+                                       <th>Fecha Nacimiento</th>
+                                       <th>Tipo Persona</th>
+                                    </tr>
+                                </thead>                                        
+                                <tbody>
+                                <c:forEach var="e" items="${listaEstudiantes}">                                           
+                                    <tr>
+                                        <td>${p.getIdentificacion()}</td>
+                                        <td>${p.getNombre1()}</td>
+                                        <td>${p.getNombre2()}</td>
+                                        <td>${p.getApellido1()}</td>
+                                        <td>${p.getApellido2()}</td>
+                                        <td>${p.getGenero()}</td>
+                                        <td>${p.getTelef()}</td>
+                                        <td>${p.getEmail()}</td>
+                                        <td>${p.getfNacimiento()}</td>
+                                        <td>${p.getTipoP()}</td>
+                           
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>                        
+		</div>
+	</div>
+	<!-- footer -->
+	<!-- //footer -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+	<!-- //here ends scrolling icon -->
+</body>	
 </html>

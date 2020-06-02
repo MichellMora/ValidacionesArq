@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+<!--<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
- perrooo-->
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Hosting City a Hosting Category Flat Bootstrap responsive Website Template | Registration :: w3layouts</title>
+<title>Eliminar</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Hosting City Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+<meta name="keywords" content="Hosting City Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- bootstrap-css -->
@@ -21,7 +22,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 <!--// css -->
 <!-- font-awesome icons -->
-<link href="css/font-awesome.css" rel="stylesheet">
+<link href="css/font-awesome.css" rel="stylesheet"> 
 <!-- //font-awesome icons -->
 <!-- font -->
 <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -31,79 +32,70 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/bootstrap.js"></script>
 <script src="js/SmoothScroll.min.js"></script>
 <script type="text/javascript">
-jQuery(document).ready(function($) {
-$(".scroll").click(function(event){
-event.preventDefault();
-$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-});
-});
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
 </script>
-</head>
-<body>
-<!-- header-top -->
-<div class="header-top">
-<div class="container">
-<div class="w3layouts-address">
-<ul>
-<li><i class="fa fa-mobile" aria-hidden="true"></i> +11 222 333 4444</li>
-<li><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="mailto:info@example.com"> mail@example.com</a></li>
-</ul>
-</div>
-<div class="agileinfo-social-grids">
-<ul>
-<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-<li><a href="#"><i class="fa fa-rss"></i></a></li>
-<li><a href="#"><i class="fa fa-vk"></i></a></li>
-</ul>
-</div>
-<div class="clearfix"> </div>
-</div>
-</div>
-<!-- //header-top -->
-<!-- header -->
-<div class="header">
-<div class="container">
-<nav class="navbar navbar-default">
-<!-- Brand and toggle get grouped for better mobile display -->
-<div class="navbar-header">
- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-<span class="sr-only">Toggle navigation</span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
-<span class="icon-bar"></span>
- </button>
-<div class="w3layouts-logo">
-<h1><a href="index.html">Hosting <span>City</span></a></h1>
-</div>
-</div>
+<link href='css/immersive-slider.css' rel='stylesheet' type='text/css'>
+<!-- pricing -->
+<link rel="stylesheet" href="css/jquery.flipster.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/site.css">
 
-<!-- Collect the nav links, forms, and other content for toggling -->
-<div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
-<nav>
-<ul class="nav navbar-nav">
-<li><a href="helloworld.htm" class="hvr-sweep-to-bottom">Home</a></li>
-<li><a href="about.html" class="hvr-sweep-to-bottom">About</a></li>
-<li><a href="plans.html" class="hvr-sweep-to-bottom">Plans</a></li>
-<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Persona<span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li><a class="hvr-sweep-to-bottom" href="personaCrear.htm">Crear</a></li>
-<li><a class="hvr-sweep-to-bottom" href="personaConsultar.htm">Consultar</a></li>
-<li><a class="hvr-sweep-to-bottom" href="personaEditar.htm">Editar</a></li>
-<li><a class="hvr-sweep-to-bottom" href="personaEliminar.htm">Eliminar</a></li>
-                                                                                
-</ul>
-</li>
-<li><a href="blog.html" class="hvr-sweep-to-bottom">Blog</a></li>
-<li><a href="mail.html" class="hvr-sweep-to-bottom">Mail Us</a></li>
-</ul>
-</nav>
+<body>
+
+<!-- Navigation -->
+
+<div class="header">
+    <div class="container">
+	<nav class="navbar navbar-default">
+	<!-- Brand and toggle get grouped for better mobile display-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+		</button>
+		
+                <div class="w3layouts-logo">
+                    <h1><a href="helloworld.htm">Monitorias <span>UCC</span></a></h1>
+		</div>
+            </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling-->
+            <div class="collapse navbar-collapse nav-wil" id="bs-example-navbar-collapse-1">
+		<nav>
+                    <ul class="nav navbar-nav">
+			<li class="active"><a href="helloworld.htm">Inicio</a></li>
+			
+			<li><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opciones<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+				<li><a class="hvr-sweep-to-bottom" href="personaCrear.htm">Registrar</a></li>
+				<li><a class="hvr-sweep-to-bottom" href="personaConsultar.htm">Consultar</a></li>
+				<li><a class="hvr-sweep-to-bottom" href="personaEditar.htm">Editar</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="personaEliminar.htm">Eliminar</a></li>
+                            </ul>
+			</li>
+			<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitoria<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Inscripcion</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Descuento</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Contrato</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+		</nav>
+            </div>
+	<!-- /.navbar-collapse--> 
+		</nav>
+    </div>
 </div>
-<!-- /.navbar-collapse -->
-</nav>
-</div>
-</div>
-<!-- //header -->
+<!-- Slide Show -->
 <!-- about-heading -->
 <div class="about-heading">
 <h2>Eliminar <span>Persona</span></h2>
@@ -116,14 +108,14 @@ $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 <div class="login-form">
     <form action="personaEliminar1.htm" method="post">
         
-        <input type="text" name="identificacion" placeholder="Identificaci�n" required>
+        <input type="text" name="identificacion" placeholder="Identificación" required>
         <input type="submit" value="CONSULTAR">
     </form>
 </div>				
 </div>                    
 
     <div class="signin-form profile">
-				<h3>:: �Desea Eliminar los datos? ::</h3>
+				<h3>:: ¿Desea Eliminar los datos? ::</h3>
 				
 				<div class="login-form">
 					<form action="personaEliminar2.htm" method="post">
@@ -228,7 +220,7 @@ voluptatibus.<span><i class="fa fa-twitter" aria-hidden="true"></i> 03 days ago<
 </div>
 </div>
 <div class="copyright">
-<p>© 2016 Hosting City. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+<p>Â© 2016 Hosting City. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 </div>
 </div>
 <!-- //footer -->

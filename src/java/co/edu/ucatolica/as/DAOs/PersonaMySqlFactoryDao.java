@@ -35,4 +35,8 @@ public class PersonaMySqlFactoryDao {
     public void eliminarUsuario(Persona usuario) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+    public void monitoriaUsuario(Persona usuario) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }

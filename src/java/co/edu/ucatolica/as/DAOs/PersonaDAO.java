@@ -19,4 +19,6 @@ public interface PersonaDAO {
     public boolean editarPersona(Persona p, Connection con);
     public boolean eliminarPersona(Persona p, Connection con);
     
+    
+    
 }
