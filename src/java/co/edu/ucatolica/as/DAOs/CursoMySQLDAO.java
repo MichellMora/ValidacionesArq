@@ -29,7 +29,7 @@ public class CursoMySQLDAO {
         
         ArrayList<Curso> datosC = new ArrayList();
         
-        Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso...");
+        Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso...");
         
         /*String codCurso = null;
         String nomCurso = null;

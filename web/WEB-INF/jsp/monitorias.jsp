@@ -130,13 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <td>${p.getCodEstudiante()}</td>
                                         <td>${p.getNomEstudiante()}</td>
                                         <td>${p.getCodCurso()}</td>
-                                        
-                                        
-                                        <!--est.setCodEstudiante(rs.getString(1));
-                est.setNomEstudiante(rs.getString(2));
-                est.setCodCurso(rs.getString(3));
-                est.setPassword(rs.getString(4));-->
-
+ 
                                     </tr>
                                 </c:forEach>
                                 </tbody>
@@ -195,43 +189,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </tbody>
                             </table>
                         </div>
-                        <h3>::Ingrese el codigo de la monitoria::</h3>
-                        <div class="login-form">
-                            <form action="monitoriaIngresoForm.htm" method="post">
-                                <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required>
-                                <input type="submit" value="CONSULTAR MONITOR">
-                            </form>
-                        </div>
-                        <p>${mensaje}</p>
-                         
-                     <div class="table-responsive">   
-                            <h3>:: Validación Monitoria ::</h3>
-                            <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
-                                <thead>       
-                                    <tr>
-                                       <th>Codigo Monitoria</th>
-                                       <th>Cod. Estudiante Asignado </th>
-                                       
-                                       <!--<th>Password</th>-->
-                                    </tr>
-                                </thead>                                        
-                                <tbody>
-                                <c:forEach var="p" items="${listaEstMonitoria}">                                           
-                                    <tr>
-                                        <td>${p.getCodMonitoria()}</td>
-                                        <td>${p.getCodEstudiante()}</td>
-                                        
-                                        
-                                        
-                                        <!--esm.setCodMonitoria(rs.getString(1));
-                                            esm.setCodEstudiante(rs.getString(2));-->
-
-                                    </tr>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>  
+                        
+                        
 		</div>
+        </div>
+        
+        <div class="registration">
+            <div class="container">
+                <div class="signin-form profile">
+                    <h3>::Ingrese el codigo de la monitoria::</h3>
+                    
+                    <div class="login-form">
+                        <form action="monitoriaIngForm.htm" method="post">
+                            <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required>
+                            <input type="submit" value="CONSULTAR MONITOR">
+                        </form>
+                        
+                    </div>
+                    <p>${msj}</p>
+                </div>
+                
+                <div class="table-responsive">   
+                       <h3>:: Validación Monitoria ::</h3>
+                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                           <thead>       
+                               <tr>
+
+                                  <th>Codigo Monitoria</th>
+                                  <th>Cod. Estudiante Asignado </th>
+
+                                  <!--<th>Password</th>-->
+                               </tr>
+                           </thead>                                        
+                           <tbody>
+                               
+                           <c:forEach var="p" items="${listaEstMonitoria}"> 
+
+                               <tr>
+                                   <td>${p.getCodMonitoria()}</td>
+                                   <td>${p.getCodEstudiante()}</td>
+                               </tr>
+
+                           </c:forEach>
+
+                           </tbody>
+                       </table>
+
+                   </div> 
+                        
+                </div>
+                <div class="signin-form profile">
+                    <a href="validaciones.htm"><input type="submit" value="CONTINUAR"></a>
+                </div>
+                
 	</div>
 	<!-- footer -->
 	<!-- //footer -->
