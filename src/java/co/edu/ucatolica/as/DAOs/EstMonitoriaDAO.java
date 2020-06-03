@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package co.edu.ucatolica.as.DAOs;
+
 /**
  *
  * @author miche
  */
-import co.edu.ucatolica.as.DTOs.Monitoria;
+import co.edu.ucatolica.as.DTOs.Est_monitoria;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-public interface MonitoriaDAO {
+public interface EstMonitoriaDAO {
     
-    public ArrayList<Monitoria> monitoriaMon(Monitoria m, Connection con);
+    public ArrayList<Est_monitoria> monitoriaEstMon(Est_monitoria c, Connection con);
     
 }

@@ -2,11 +2,15 @@ package co.edu.ucatolica.as.controllers;
 
 import co.edu.ucatolica.as.DAOs.FactoryDao;
 import co.edu.ucatolica.as.DAOs.PersonaMySQLDAO;
+import co.edu.ucatolica.as.DAOs.MonitoriaMySQLDAO;
+import co.edu.ucatolica.as.DAOs.EstMonitoriaMySQLDAO;
 import co.edu.ucatolica.as.DAOs.CursoMySQLDAO;
 import co.edu.ucatolica.as.DAOs.EstudianteMySQLDAO;
 import co.edu.ucatolica.as.DTOs.Persona;
 import co.edu.ucatolica.as.DTOs.Estudiante;
 import co.edu.ucatolica.as.DTOs.Curso;
+import co.edu.ucatolica.as.DTOs.Monitoria;
+import co.edu.ucatolica.as.DTOs.Est_monitoria;
 import co.edu.ucatolica.as.bds.MySqlDataSource;
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -270,26 +274,40 @@ public class PersonaControllers implements Controller {
 
         EstudianteMySQLDAO eDao = new EstudianteMySQLDAO();
         CursoMySQLDAO cDao = new CursoMySQLDAO();
+        MonitoriaMySQLDAO mDao = new MonitoriaMySQLDAO();
+        EstMonitoriaMySQLDAO emDao = new EstMonitoriaMySQLDAO();
         
     
         Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
         Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+        Logger.getLogger(MonitoriaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+        Logger.getLogger(EstMonitoriaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
         
         String ident = req.getParameter("codEstudiante");
         String cur = req.getParameter("codCurso");
+        String mon = req.getParameter("codCurso");
+        String esmon = req.getParameter("codMonitoria");
         
         Estudiante e = new Estudiante();
         Curso c = new Curso();
+        Monitoria m = new Monitoria();
+        Est_monitoria em = new Est_monitoria();
        
         e.setCodEstudiante(ident);
         c.setCodCurso(cur);
+        m.setCodCurso(mon);
+        em.setCodMonitoria(esmon);
     
             
         List<Estudiante> datosE = eDao.monitoriaIng(e, MySqlDataSource.getConexionBD());
         List<Curso> datosC = cDao.monitoriaCur(c, MySqlDataSource.getConexionBD());
+        List<Monitoria> datosM = mDao.monitoriaMon(m, MySqlDataSource.getConexionBD());
+        List<Est_monitoria> datosEM = emDao.monitoriaEstMon(em, MySqlDataSource.getConexionBD());
 
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datosE.size());
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + cur + "-" + datosE.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + mon + "-" + datosM.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + esmon + "-" + datosM.size());
         
         model.put("listaEstudiante", datosE);
         if (datosE.size() > 0)
@@ -302,6 +320,18 @@ public class PersonaControllers implements Controller {
             model.put("mensaje", "Información");
         else
             model.put("mensaje", "No se pudo ejecutar la solicitud");
+        
+        model.put("listaMonitoria", datosM);
+        if (datosM.size() > 0)
+            model.put("mensaje", "Información");
+        else
+            model.put("mensaje", "No se pudo ejecutar la solicitud");
+        
+        model.put("listaEstMonitoria", datosEM);
+        if (datosEM.size() > 0)
+            model.put("mensaje", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
+        else
+            model.put("mensaje", "La materia no tiene monitor asignado, puedes continuar");
         
         return "monitorias";
     }  

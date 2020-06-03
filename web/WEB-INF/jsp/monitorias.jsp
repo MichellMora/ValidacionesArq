@@ -113,7 +113,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<p>${mensaje}</p>
 			</div>
                         <br><br> 
-                     <div class="table-responsive">                                                               
+                     <div class="table-responsive">   
+                            <h3>:: Datos Estudiante ::</h3>
                             <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
                                 <thead>       
                                     <tr>
@@ -142,7 +143,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </table>
                         </div>  
                         
-                        <div class="table-responsive">                                                               
+                        <div class="table-responsive">  
+                            <h3>:: Datos Curso ::</h3>
                             <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
                                 <thead>       
                                     <tr>
@@ -167,6 +169,68 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </tbody>
                             </table>
                         </div> 
+                         <div class="table-responsive"> 
+                                   <h3>:: Datos Monitoria ::</h3>
+                            <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                                <thead>       
+                                    <tr>
+                                       <th>Codigo Monitoria</th>
+                                       <th>Nombre Monitoria </th>
+                                       <th>Nombre Materia</th> 
+                                    </tr>
+                                </thead>                                        
+                                <tbody>
+                                <c:forEach var="p" items="${listaMonitoria}">                                           
+                                    <tr>
+                                        <td>${p.getCodMonitoria()}</td>
+                                        <td>${p.getNomMonitoria()}</td>
+                                        <td>${p.getNomMateria()}</td>
+                                        
+                                        <!--mon.setCodCurso(rs.getString(1));
+                                            mon.setNomMonitoria(rs.getString(2));
+                                            mon.setNomMateria(rs.getString(3));-->
+
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3>::Ingrese el codigo de la monitoria::</h3>
+                        <div class="login-form">
+                            <form action="monitoriaIngresoForm.htm" method="post">
+                                <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required>
+                                <input type="submit" value="CONSULTAR MONITOR">
+                            </form>
+                        </div>
+                        <p>${mensaje}</p>
+                         
+                     <div class="table-responsive">   
+                            <h3>:: Validación Monitoria ::</h3>
+                            <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                                <thead>       
+                                    <tr>
+                                       <th>Codigo Monitoria</th>
+                                       <th>Cod. Estudiante Asignado </th>
+                                       
+                                       <!--<th>Password</th>-->
+                                    </tr>
+                                </thead>                                        
+                                <tbody>
+                                <c:forEach var="p" items="${listaEstMonitoria}">                                           
+                                    <tr>
+                                        <td>${p.getCodMonitoria()}</td>
+                                        <td>${p.getCodEstudiante()}</td>
+                                        
+                                        
+                                        
+                                        <!--esm.setCodMonitoria(rs.getString(1));
+                                            esm.setCodEstudiante(rs.getString(2));-->
+
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div>  
 		</div>
 	</div>
 	<!-- footer -->
