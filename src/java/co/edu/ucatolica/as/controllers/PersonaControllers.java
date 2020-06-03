@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.ucatolica.as.controllers;
-
-/**
- *
- * @author NixonD
- */
 
 import co.edu.ucatolica.as.DAOs.FactoryDao;
 import co.edu.ucatolica.as.DAOs.PersonaMySQLDAO;
+import co.edu.ucatolica.as.DAOs.CursoMySQLDAO;
+import co.edu.ucatolica.as.DAOs.EstudianteMySQLDAO;
 import co.edu.ucatolica.as.DTOs.Persona;
+import co.edu.ucatolica.as.DTOs.Estudiante;
+import co.edu.ucatolica.as.DTOs.Curso;
 import co.edu.ucatolica.as.bds.MySqlDataSource;
 import java.lang.annotation.Annotation;
 import java.util.List;
@@ -261,43 +255,58 @@ public class PersonaControllers implements Controller {
        return "persona_eliminar";
     }
     
+    /*Inicio Metodos*/
     
-       @RequestMapping(method = RequestMethod.GET, value = "monitoriaIngreso.htm")
+    @RequestMapping(method = RequestMethod.GET, value = "monitoriaIngreso.htm")
     public String processSubmit20(HttpServletRequest req, SessionStatus status,ModelMap model) 
     {      
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.INFO, "Ejecutando processSubmit2...");
         return "monitorias";
     } 
     
-@RequestMapping(method = RequestMethod.POST, value = "monitoriaIngresoForm.htm")
+    @RequestMapping(method = RequestMethod.POST, value = "monitoriaIngresoForm.htm")
     public String processSubmit30(HttpServletRequest req, SessionStatus status,ModelMap model) 
     {
 
-        PersonaMySQLDAO pDao = new PersonaMySQLDAO();
+        EstudianteMySQLDAO eDao = new EstudianteMySQLDAO();
+        CursoMySQLDAO cDao = new CursoMySQLDAO();
         
     
-        Logger.getLogger(PersonaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
-      
-        String ident = req.getParameter("identificacion");
+        Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+        Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
         
-        Persona p = new Persona();
+        String ident = req.getParameter("codEstudiante");
+        String cur = req.getParameter("codCurso");
+        
+        Estudiante e = new Estudiante();
+        Curso c = new Curso();
        
-        p.setIdentificacion(ident);
+        e.setCodEstudiante(ident);
+        c.setCodCurso(cur);
     
             
-        List<Persona> datos = pDao.consultarPersona(p, MySqlDataSource.getConexionBD());
+        List<Estudiante> datosE = eDao.monitoriaIng(e, MySqlDataSource.getConexionBD());
+        List<Curso> datosC = cDao.monitoriaCur(c, MySqlDataSource.getConexionBD());
 
-        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datos.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datosE.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + cur + "-" + datosE.size());
         
-        model.put("listaPersonas", datos);
-        if (datos.size() > 0)
-            model.put("mensaje", "En la siguiente tabla se muestran los datos de la persona identificada con la cedula numero "+ p.getIdentificacion() + datos.size());
+        model.put("listaEstudiante", datosE);
+        if (datosE.size() > 0)
+            model.put("mensaje", "Información");
         else
-            model.put("mensaje", "La persona con la cedula numero " + p.getIdentificacion()+ " no se encuentra registrada en la base de datos");
+            model.put("mensaje", "No se pudo ejecutar la solicitud");
+        
+        model.put("listaCurso", datosC);
+        if (datosC.size() > 0)
+            model.put("mensaje", "Información");
+        else
+            model.put("mensaje", "No se pudo ejecutar la solicitud");
         
         return "monitorias";
-    }   
+    }  
     
+    /*Fin Metodos*/
     
     @Override
     public String value() {

@@ -10,7 +10,45 @@ package co.edu.ucatolica.as.DTOs;
  * @author miche
  */
 public class Estudiante {
+
+    String codEstudiante = null;
+    String nomEstudiante = null;
+    String codCurso = null;
+    String password = null;
     
+    public String getCodEstudiante() {
+        return codEstudiante;
+    }
+
+    public void setCodEstudiante(String codEstudiante) {
+        this.codEstudiante = codEstudiante;
+    }
+
+    public String getNomEstudiante() {
+        return nomEstudiante;
+    }
+
+    public void setNomEstudiante(String nomEstudiante) {
+        this.nomEstudiante = nomEstudiante;
+    }
+
+    public String getCodCurso() {
+        return codCurso;
+    }
+
+    public void setCodCurso(String codCurso) {
+        this.codCurso = codCurso;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    /*
     int id = 0;
     String identificacion = null;
     String nombre1 = null;
@@ -110,5 +148,5 @@ public class Estudiante {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+    */
 }

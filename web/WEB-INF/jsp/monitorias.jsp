@@ -102,49 +102,71 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				
 				<div class="login-form">
 					<form action="monitoriaIngresoForm.htm" method="post">
-                                            <input type="text" name="identificacion" placeholder="Identificación" required>
+                                            <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
+                                            <input type="text" name="codCurso" placeholder="Codigo del Curso" required>
+                                            <input type="password" name="password" placeholder="Contraseña" required>
                                             <!-- <input type="text" name="nombre1" placeholder="Nombre 1" required> -->
 
-                                            <input type="submit" value="CONSULTAR">
+                                            <input type="submit" value="CONSULTAR INFORMACIÓN">
 					</form>
 				</div>
 				<p>${mensaje}</p>
 			</div>
+                        <br><br> 
                      <div class="table-responsive">                                                               
                             <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
                                 <thead>       
                                     <tr>
-                                       <th>Identificación</th>
-                                       <th>Nombre 1</th>
-                                       <th>Nombre 2</th>
-                                       <th>Apellido 1</th>
-                                       <th>Apellido 2</th>
-                                       <th>Genero</th>
-                                       <th>Telefono</th>
-                                       <th>E-mail</th>
-                                       <th>Fecha Nacimiento</th>
-                                       <th>Tipo Persona</th>
+                                       <th>Codigo Est</th>
+                                       <th>Nombre Est </th>
+                                       <th>Codigo Curso</th> 
+                                       <!--<th>Password</th>-->
                                     </tr>
                                 </thead>                                        
                                 <tbody>
-                                <c:forEach var="p" items="${listaPersonas}">                                           
+                                <c:forEach var="p" items="${listaEstudiante}">                                           
                                     <tr>
-                                        <td>${p.getIdentificacion()}</td>
-                                        <td>${p.getNombre1()}</td>
-                                        <td>${p.getNombre2()}</td>
-                                        <td>${p.getApellido1()}</td>
-                                        <td>${p.getApellido2()}</td>
-                                        <td>${p.getGenero()}</td>
-                                        <td>${p.getTelef()}</td>
-                                        <td>${p.getEmail()}</td>
-                                        <td>${p.getfNacimiento()}</td>
-                                        <td>${p.getTipoP()}</td>
-                           
+                                        <td>${p.getCodEstudiante()}</td>
+                                        <td>${p.getNomEstudiante()}</td>
+                                        <td>${p.getCodCurso()}</td>
+                                        
+                                        
+                                        <!--est.setCodEstudiante(rs.getString(1));
+                est.setNomEstudiante(rs.getString(2));
+                est.setCodCurso(rs.getString(3));
+                est.setPassword(rs.getString(4));-->
+
                                     </tr>
                                 </c:forEach>
                                 </tbody>
                             </table>
-                        </div>                        
+                        </div>  
+                        
+                        <div class="table-responsive">                                                               
+                            <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                                <thead>       
+                                    <tr>
+                                       <th>Codigo Curso</th>
+                                       <th>Nombre Curso </th>
+                                       <th>Creditos Curso</th> 
+                                    </tr>
+                                </thead>                                        
+                                <tbody>
+                                <c:forEach var="p" items="${listaCurso}">                                           
+                                    <tr>
+                                        <td>${p.getCodCurso()}</td>
+                                        <td>${p.getNomCurso()}</td>
+                                        <td>${p.getCredCurso()}</td>
+                                        
+                                        <!--  cur.setCodCurso(rs.getString(1));
+                                            cur.setNomCurso(rs.getString(2));
+                                            cur.setCredCurso(rs.getString(3));-->
+
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </div> 
 		</div>
 	</div>
 	<!-- footer -->

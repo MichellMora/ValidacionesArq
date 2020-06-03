@@ -216,7 +216,7 @@ public class PersonaMySQLDAO implements PersonaDAO{
         return respuesta;
 
     }
-   
+   /*
    public ArrayList<Persona> monitoriaIng(Persona p, Connection con)
     {
         
@@ -260,4 +260,5 @@ public class PersonaMySQLDAO implements PersonaDAO{
         
         return datos;
     }
+   */
 }
