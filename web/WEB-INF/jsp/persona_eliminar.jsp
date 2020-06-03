@@ -83,9 +83,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</li>
 			<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitoria<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Inscripcion</a></li>
-                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Descuento</a></li>
-                                <li><a class="hvr-sweep-to-bottom" href="monitoriasIngreso.htm">Contrato</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Inscripcion</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Descuento</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Contrato</a></li>
                             </ul>
                         </li>
                     </ul>

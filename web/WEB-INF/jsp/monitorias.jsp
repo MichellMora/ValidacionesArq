@@ -127,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </tr>
                                 </thead>                                        
                                 <tbody>
-                                <c:forEach var="e" items="${listaEstudiantes}">                                           
+                                <c:forEach var="p" items="${listaPersonas}">                                           
                                     <tr>
                                         <td>${p.getIdentificacion()}</td>
                                         <td>${p.getNombre1()}</td>
