@@ -1,14 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package co.edu.ucatolica.as.DAOs;
-
-/**
- *
- * @author miche
- */
 
 import co.edu.ucatolica.as.DTOs.Estudiante;
 import java.sql.Connection;
@@ -26,45 +16,41 @@ public class EstudianteMySQLDAO {
     public ArrayList<Estudiante> monitoriaIng(Estudiante e, Connection con)
     {
         
-        ArrayList<Estudiante> datos = new ArrayList();
+        ArrayList<Estudiante> datosE = new ArrayList();
         
         Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarEstudiante...");
-        
+        /*String codEstudiante = null;
+        String nomEstudiante = null;
+        String codCurso = null;
+        String password = null;*/
         try {
             Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery ("select identificacion, nombre_1,nombre_2, "
-                    + " apellido_1, apellido_2, genero, telefono, email, "
-                    + " fecha_nacimiento, tipo_persona"
+            ResultSet rs = s.executeQuery ("select cod_estudiante, nom_estudiante,cod_curso, "
+                    + " password "
                     + " from estudiante "
                     + " where "
-                    + " identificacion='" + e.getIdentificacion()+"'");
+                    + " cod_estudiante='" + e.getCodEstudiante()+"'");
             
             while (rs.next())
             { 
                 Estudiante est = new Estudiante();
-                est.setIdentificacion(rs.getString(1));
-                est.setNombre1(rs.getString(2));
-                est.setNombre2(rs.getString(3));
-                est.setApellido1(rs.getString(4));
-                est.setApellido2(rs.getString(5));
-                est.setGenero(rs.getString(6));
-                est.setTelef(rs.getString(7));
-                est.setEmail(rs.getString(8));
-                est.setfNacimiento(rs.getString(9));
-                est.setTipoP(rs.getString(10));
+                est.setCodEstudiante(rs.getString(1));
+                est.setNomEstudiante(rs.getString(2));
+                est.setCodCurso(rs.getString(3));
+                est.setPassword(rs.getString(4));
                 
-                datos.add(est);
+                datosE.add(est);
                 
             }
             
-            Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarEstudiante fin...{0}", datos.size());
+            Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarEstudiante fin...{0}", datosE.size());
             
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return datos;
+        return datosE;
     }
 }
     
