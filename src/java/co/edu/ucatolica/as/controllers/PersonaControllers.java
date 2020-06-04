@@ -2,11 +2,13 @@ package co.edu.ucatolica.as.controllers;
 
 import co.edu.ucatolica.as.DAOs.FactoryDao;
 import co.edu.ucatolica.as.DAOs.PersonaMySQLDAO;
+import co.edu.ucatolica.as.DAOs.EstCursoMySQLDAO;
 import co.edu.ucatolica.as.DAOs.MonitoriaMySQLDAO;
 import co.edu.ucatolica.as.DAOs.EstMonitoriaMySQLDAO;
 import co.edu.ucatolica.as.DAOs.CursoMySQLDAO;
 import co.edu.ucatolica.as.DAOs.EstudianteMySQLDAO;
 import co.edu.ucatolica.as.DTOs.Persona;
+import co.edu.ucatolica.as.DTOs.Est_curso;
 import co.edu.ucatolica.as.DTOs.Estudiante;
 import co.edu.ucatolica.as.DTOs.Curso;
 import co.edu.ucatolica.as.DTOs.Monitoria;
@@ -370,6 +372,41 @@ public class PersonaControllers implements Controller {
         return "monitorias";
     }  
     /*Fin Validación1*/
+    
+    @RequestMapping(method = RequestMethod.GET, value = "monitoriaValidacion.htm")
+    public String processSubmit23(HttpServletRequest req, SessionStatus status,ModelMap model) 
+    {      
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.INFO, "Ejecutando processSubmit2...");
+        return "validaciones";
+    } 
+    
+    @RequestMapping(method = RequestMethod.POST, value = "monitoriaValidacionForm.htm")
+    public String processSubmit33(HttpServletRequest req, SessionStatus status,ModelMap model) 
+    {
+        EstCursoMySQLDAO ecDao = new EstCursoMySQLDAO();
+        Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+    
+        String escur = req.getParameter("codEstudiante");
+        
+        Est_curso ec = new Est_curso();
+       
+        ec.setCodEstudiante(escur);
+    
+        List<Est_curso> datosEC = ecDao.validacionesCur(ec, MySqlDataSource.getConexionBD());
+
+        
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + escur + "-" + datosEC.size());
+        
+        
+        model.put("listaEstCurso", datosEC);
+        if (datosEC.size() > 0)
+            model.put("msj", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
+            
+        else
+            model.put("msj", "La materia no tiene monitor asignado, puedes continuar");
+        
+        return "validaciones";
+    }  
     
     @Override
     public String value() {

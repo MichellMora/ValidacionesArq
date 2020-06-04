@@ -95,7 +95,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<h2>Validación <span>Monitorias</span></h2>
 	</div>
 	<!-- //about-heading -->
+        
+        <div class="registration">
+            <div class="container">
+                <div class="signin-form profile">
+                    <h3>::Ingrese el codigo de la monitoria::</h3>
+                    
+                    <div class="login-form">
+                        <form action="monitoriaValidacionForm.htm" method="post">
+                            
+                            <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
+                            
+                            <input type="submit" value="VALIDAR">
+                        </form>
+                        
+                    </div>
+                    <p>${msj}</p>
+                </div>
+                
+                <div class="table-responsive">   
+                       <h3>:: Validación Monitoria ::</h3>
+                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                           <thead>       
+                               <tr>
 
+                                  <th>Codigo Curso</th>
+                                  <th>Codigo Estudiante </th>
+
+                                  <!--<th>Password</th>-->
+                               </tr>
+                           </thead>                                        
+                           <tbody>
+                               
+                           <c:forEach var="p" items="${listaEstCurso}"> 
+
+                               <tr>
+                                   <td>${p.getCodCurso()}</td>
+                                   <td>${p.getCodEstudiante()}</td>
+                               </tr>
+
+                           </c:forEach>
+
+                           </tbody>
+                       </table>
+
+                   </div> 
+                        
+                </div>
+                
+                
+	</div>
 	<!-- footer -->
 	<!-- //footer -->
 	<script type="text/javascript" src="js/move-top.js"></script>
