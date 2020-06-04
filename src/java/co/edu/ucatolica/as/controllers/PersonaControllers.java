@@ -384,22 +384,71 @@ public class PersonaControllers implements Controller {
     public String processSubmit33(HttpServletRequest req, SessionStatus status,ModelMap model) 
     {
         EstCursoMySQLDAO ecDao = new EstCursoMySQLDAO();
+        EstudianteMySQLDAO eDao = new EstudianteMySQLDAO();
+        CursoMySQLDAO cDao = new CursoMySQLDAO();
+        
         Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+        Logger.getLogger(EstudianteMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+        Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
     
         String escur = req.getParameter("codEstudiante");
+        String epcur = req.getParameter("codEstudiante");
         String ecur = req.getParameter("codCurso");
+       
+        String ident = req.getParameter("codEstudiante");
+        String cur = req.getParameter("codCurso");
+        
         
         Est_curso ec = new Est_curso();
+        Estudiante e = new Estudiante();
+        Curso c = new Curso();
        
         ec.setCodEstudiante(escur);
         ec.setCodCurso(ecur);
+        
+        ec.setCodEstudiante(epcur);
+        e.setCodEstudiante(ident);
+        c.setCodCurso(cur);
+        
+        
     
         List<Est_curso> datosEC = ecDao.validacionesCur(ec, MySqlDataSource.getConexionBD());
         List<Est_curso> datosES = ecDao.validacionesCur(ec, MySqlDataSource.getConexionBD());
+        List<Est_curso> datosEP = ecDao.validacionesProm(ec, MySqlDataSource.getConexionBD());
+       
+        List<Estudiante> datosE = eDao.monitoriaIng(e, MySqlDataSource.getConexionBD());
+        List<Curso> datosC = cDao.monitoriaCur(c, MySqlDataSource.getConexionBD());
         
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + escur + "-" + datosEC.size());
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ecur + "-" + datosES.size());
         
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + epcur + "-" + datosEP.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datosE.size());
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + cur + "-" + datosE.size());
+        
+        
+        
+        model.put("listaEstudiante", datosE);
+        if (datosE.size() > 0)
+            model.put("mensaje", "Información");
+        else
+            model.put("mensaje", "No se pudo ejecutar la solicitud");
+        
+        model.put("listaCurso", datosC);
+        if (datosC.size() > 0)
+            model.put("mensaje", "Información");
+            
+        else
+            model.put("mensaje", "No se pudo ejecutar la solicitud");
+        
+        model.put("listaEstCursoP", datosEP);
+        
+            if (datosEP.size() > 0)
+                model.put("m", "Se pudo ejecutar la solicitud ");
+                
+            else
+                model.put("m", "No se pudo ejecutar la solicitud");
+  
         model.put("listaEstCurso", datosEC);
         model.put("listaEstCurso", datosES);
         if (datosEC.size() > 0)
@@ -407,8 +456,7 @@ public class PersonaControllers implements Controller {
                     model.put("msj", "El estudiante ha visto el curso"); }}   
         else
             model.put("msj", "El estudiante no ha visto el curso");
-        
-        
+       
        
         return "validaciones";
     }  

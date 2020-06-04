@@ -14,7 +14,9 @@ public class Est_curso {
     int id =0;
     String codEstudiante = null;
     String codCurso = null;
-    String notaCurso = null;
+    float notaCurso = (float) 3.8;
+    float notaCursoN = (float) 3.9;
+    
 
     public int getId() {
         return id;
@@ -40,11 +42,11 @@ public class Est_curso {
         this.codCurso = codCurso;
     }
 
-    public String getNotaCurso() {
+    public float getNotaCurso() {
         return notaCurso;
     }
 
-    public void setNotaCurso(String notaCurso) {
+    public void setNotaCurso(float notaCurso) {
         this.notaCurso = notaCurso;
     }
     

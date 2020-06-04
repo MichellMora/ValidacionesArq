@@ -46,7 +46,7 @@ public class EstCursoMySQLDAO {
                 ecur.setId(rs.getInt(1));
                 ecur.setCodEstudiante(rs.getString(2));
                 ecur.setCodCurso(rs.getString(3)); 
-                ecur.setNotaCurso(rs.getString(4));
+                ecur.setNotaCurso(rs.getFloat(4));
                 /*est.setCodEstudiante(rs.getString(1));
                 est.setNomEstudiante(rs.getString(2));
                 est.setCodCurso(rs.getString(3));
@@ -56,16 +56,65 @@ public class EstCursoMySQLDAO {
                 datosES.add(ecur);
             }
             
-            Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosEC.size());
-            Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosES.size());
+            Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosEC.size());
+            Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosES.size());
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return datosEC;
        
     }
+    
+    public ArrayList<Est_curso> validacionesProm(Est_curso ec, Connection con){
+    
+        ArrayList<Est_curso> datosEP = new ArrayList();
+        
+        
+        Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso...");
+        
+        /*String codCurso = null;
+        String nomCurso = null;
+        String credCurso = null;*/
+        
+        try {
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery ("select id, cod_estudiante, cod_curso, avg(nota_curso)"
+                    + " from estudiante_curso "
+                    + " where cod_estudiante="+ec.getCodEstudiante());
+            
+            while (rs.next())
+            { 
+                Est_curso epcur = new Est_curso();
+                
+                epcur.setId(rs.getInt(1));
+                epcur.setCodEstudiante(rs.getString(2));
+                epcur.setCodCurso(rs.getString(3)); 
+                epcur.setNotaCurso(rs.getFloat(4));
+                /*est.setCodEstudiante(rs.getString(1));
+                est.setNomEstudiante(rs.getString(2));
+                est.setCodCurso(rs.getString(3));
+                est.setPassword(rs.getString(4));*/
+                
+                datosEP.add(epcur);
+                
+            }
+            
+            Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosEP.size());
+            
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return datosEP;
+       
+    }
+    
+    
+    
  }
             
     

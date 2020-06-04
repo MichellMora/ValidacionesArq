@@ -16,5 +16,6 @@ import java.util.ArrayList;
 public interface EstCursoDAO {
     
     public ArrayList<Est_curso> validacionesCur(Est_curso ec, Connection con);
+    public ArrayList<Est_curso> validacionesProm(Est_curso ec, Connection con);
     
 }

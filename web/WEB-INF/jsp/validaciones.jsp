@@ -112,6 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                     </div>
                     <p>${msj}</p>
+                    <p>${m}</p>
                 </div>
                 
                 <div class="table-responsive">   
@@ -120,26 +121,63 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            <thead>       
                                <tr>
 
-                                  <th>Codigo Curso</th>
                                   <th>Codigo Estudiante </th>
-                                
-
-                                  <!--<th>Password</th>-->
+                                  <th>Nombre Estudiante </th>
+                                  <th>Codigo Curso </th>
+                                  <th>Nombre Curso </th>
+                                  
                                </tr>
                            </thead>                                        
                            <tbody>
                                
                            <c:forEach var="p" items="${listaEstCurso}"> 
-                           
+                           <c:forEach var="e" items="${listaEstudiante}"> 
+                           <c:forEach var="c" items="${listaCurso}"> 
 
                                <tr>
-                                   <td>${p.getCodCurso()}</td>
                                    <td>${p.getCodEstudiante()}</td>
-                                 
+                                   <td>${e.getNomEstudiante()}</td>
+                                   <td>${p.getCodCurso()}</td>
+                                   <td>${c.getNomCurso()}</td>
+                                   
+ 
                                </tr>
 
                            </c:forEach>
+                           </c:forEach>
+                           </c:forEach>
+
+                           </tbody>
+                       </table>
+
+                   </div> 
+                    
+     
+                    <div class="table-responsive">   
+                       <h3>:: Validación Monitoria ::</h3>
+                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                           <thead>       
+                               <tr>
+
+                                  <th>Codigo Estudiante </th>
+                                  <th>Nota Curso </th>
+                                  <th>Codigo Curso </th>
+                                  
+                                  
+                               </tr>
+                           </thead>                                        
+                           <tbody>
+                               
+                           <c:forEach var="p" items="${listaEstCursoP}"> 
                            
+
+                               <tr>
+                                   <td>${p.getCodEstudiante()}</td>
+                                   <td>${p.getNotaCurso()}</td>
+                                   <td>${p.getCodCurso()}</td>
+                                  
+
+                           </c:forEach>
                           
 
                            </tbody>

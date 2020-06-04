@@ -25,4 +25,8 @@ public class EstCursoMySqlFactoryDao {
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+    public void promedioUsuario(Est_curso usuario) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
 }
