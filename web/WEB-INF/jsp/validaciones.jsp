@@ -105,6 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <form action="monitoriaValidacionForm.htm" method="post">
                             
                             <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
+                            <input type="text" name="codCurso" placeholder="Codigo del Curso" required>
                             
                             <input type="submit" value="VALIDAR">
                         </form>
@@ -121,6 +122,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                   <th>Codigo Curso</th>
                                   <th>Codigo Estudiante </th>
+                                
 
                                   <!--<th>Password</th>-->
                                </tr>
@@ -128,13 +130,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                            <tbody>
                                
                            <c:forEach var="p" items="${listaEstCurso}"> 
+                           
 
                                <tr>
                                    <td>${p.getCodCurso()}</td>
                                    <td>${p.getCodEstudiante()}</td>
+                                 
                                </tr>
 
                            </c:forEach>
+                           
+                          
 
                            </tbody>
                        </table>

@@ -24,6 +24,7 @@ public class EstCursoMySQLDAO {
     public ArrayList<Est_curso> validacionesCur(Est_curso ec, Connection con){
     
         ArrayList<Est_curso> datosEC = new ArrayList();
+        ArrayList<Est_curso> datosES = new ArrayList();
         
         Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso...");
         
@@ -35,8 +36,8 @@ public class EstCursoMySQLDAO {
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery ("select id, cod_estudiante, cod_curso, nota_curso"
                     + " from estudiante_curso "
-                    + " where "
-                    + " cod_estudiante='" + ec.getCodEstudiante()+"'");
+                    + " where cod_curso="+ec.getCodCurso()
+                    + " and cod_estudiante=" + ec.getCodEstudiante());
             
             while (rs.next())
             { 
@@ -52,17 +53,18 @@ public class EstCursoMySQLDAO {
                 est.setPassword(rs.getString(4));*/
                 
                 datosEC.add(ecur);
-                
+                datosES.add(ecur);
             }
             
             Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosEC.size());
-            
+            Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosES.size());
             con.close();
         } catch (SQLException ex) {
             Logger.getLogger(CursoMySQLDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return datosEC;
+       
     }
  }
             

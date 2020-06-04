@@ -1,3 +1,4 @@
+  
 package co.edu.ucatolica.as.controllers;
 
 import co.edu.ucatolica.as.DAOs.FactoryDao;
@@ -188,7 +189,6 @@ public class PersonaControllers implements Controller {
         p.setEmail(email);     
         
          /*boolean insert = MySqlFactory.getPersonaDao().crearPersona(p, MySqlDataSource.getConexionBD());
-
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Registrar + " + ident + "-" + insert);
         
         if (insert)
@@ -387,24 +387,29 @@ public class PersonaControllers implements Controller {
         Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
     
         String escur = req.getParameter("codEstudiante");
+        String ecur = req.getParameter("codCurso");
         
         Est_curso ec = new Est_curso();
        
         ec.setCodEstudiante(escur);
+        ec.setCodCurso(ecur);
     
         List<Est_curso> datosEC = ecDao.validacionesCur(ec, MySqlDataSource.getConexionBD());
-
+        List<Est_curso> datosES = ecDao.validacionesCur(ec, MySqlDataSource.getConexionBD());
         
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + escur + "-" + datosEC.size());
-        
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ecur + "-" + datosES.size());
         
         model.put("listaEstCurso", datosEC);
+        model.put("listaEstCurso", datosES);
         if (datosEC.size() > 0)
-            model.put("msj", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
-            
+            {if(datosES.size() > 0){
+                    model.put("msj", "El estudiante ha visto el curso"); }}   
         else
-            model.put("msj", "La materia no tiene monitor asignado, puedes continuar");
+            model.put("msj", "El estudiante no ha visto el curso");
         
+        
+       
         return "validaciones";
     }  
     
