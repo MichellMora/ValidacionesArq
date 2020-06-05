@@ -371,7 +371,7 @@ public class PersonaControllers implements Controller {
         
         return "monitorias";
     }  
-    /*Fin Validación1*/
+    
     
     @RequestMapping(method = RequestMethod.GET, value = "monitoriaValidacion.htm")
     public String processSubmit23(HttpServletRequest req, SessionStatus status,ModelMap model) 
@@ -430,16 +430,18 @@ public class PersonaControllers implements Controller {
         Logger.getLogger(EstMonitoriaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
     
         String esmon = req.getParameter("codMonitoria");
+        String esm = req.getParameter("codEstudiante");
         
         Est_monitoria em = new Est_monitoria();
        
         em.setCodMonitoria(esmon);
-    
+        em.setCodEstudiante(esm);
+        
         List<Est_monitoria> datosEM = emDao.monitoriaEstMon(em, MySqlDataSource.getConexionBD());
-
+        List<Est_monitoria> datosEPs = emDao.monitoriaPos(em, MySqlDataSource.getConexionBD());
         
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + esmon + "-" + datosEM.size());
-        
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + esm + "-" + datosEPs.size());
         
         model.put("listaEstMonitoria", datosEM);
         if (datosEM.size() > 0)
@@ -449,6 +451,12 @@ public class PersonaControllers implements Controller {
             model.put("mj", "La materia no tiene monitor asignado, puedes continuar");
         
         
+        model.put("listaEstPMonitoria", datosEPs);
+        if (datosEPs.size() > 0)
+            model.put("mss", "El estudiante tiene asignada otra monitoria,un estudiante de posgrado no puede tener más de una monitoria");
+            
+        else
+            model.put("mss", "El estudiante no tiene asignada otra monitoria");
         
         
         
@@ -470,9 +478,9 @@ public class PersonaControllers implements Controller {
 
             if (datosEP.size() > 0)
                
-                model.put("m", "Se pudo ejecutar la solicitud ");
+                model.put("m", "Promedio estudiante ");
             else          
-                model.put("m", "Se pudo ejecutar la solicitud ");
+                model.put("m", "No se encuentra promedio ");
             
             
             /*if ((ecur.equals(datosEP.get(0))))
@@ -489,8 +497,19 @@ public class PersonaControllers implements Controller {
         else
             model.put("msj", "El estudiante no ha visto el curso");
        
-       
-        return "validaciones";
+       if (datosEP.size()>0 && datosEC.size() > 0 && datosE.size()>0 && datosC.size() > 0)
+           if (datosEM.size()>0)
+                {
+                   model.put("messag", "Lo sentimos, no puedes ser monitor, te explicamos los motivos en la caja de inscripción");
+
+                }
+            else 
+            {
+                 model.put("message", "Felicitaciones, puedes ser monitor de este curso");
+
+            }
+        
+       return "validaciones";
     }  
     
     @Override

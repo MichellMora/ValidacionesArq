@@ -15,7 +15,8 @@ public abstract class FactoryDao {
     public static final int MYSQL_FACTORY = 2;
 
     public abstract PersonaMySQLDAO getPersonaDao();
-
+    
+    
     public static FactoryDao getFactory(int claveFactory){
         switch(claveFactory){
             case Oracle_FACTORY:
@@ -25,5 +26,6 @@ public abstract class FactoryDao {
             default:
                 throw new IllegalArgumentException();
         }
-    }    
+    }  
+   
 }

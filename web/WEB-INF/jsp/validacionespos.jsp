@@ -78,8 +78,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitoria<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Inscripcion</a></li>
-                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Descuento</a></li>
-                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Contrato</a></li>
+                                
                             </ul>
                         </li>
                     </ul>
@@ -102,12 +101,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <h3>::Validación datos Monitoria::</h3>
                     
                     <div class="login-form">
-                        <form action="monitoriaValidacionForm.htm" method="post">
+                        <form action="monitoriaValidacionFor.htm" method="post">
                             
                                 <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
                                 <input type="text" name="codCurso" placeholder="Codigo del Curso" required>
                                 <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required>
-                                <input type="password" name="password" placeholder="Codigo de la monitoria" required>
+                                <input type="password" name="password" placeholder="Contraseña" required>
                                 <input type="submit" value="VALIDAR">
                         </form>
                             
@@ -116,10 +115,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         
                     </div>
                     <p>${mj}</p>
+                    <p>${mss}</p>
                     <p>${msj}</p>
                     <p>${m}</p>
                 </div>
-                <div class="table-responsive">   
+                
+                   <div class="table-responsive">   
                        <h3>:: Validación Monitoria ::</h3>
                        <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
                            <thead>       
@@ -146,6 +147,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                        </table>
 
                    </div> 
+                                   <div class="table-responsive">   
+                       <h3>:: Validación Monitoria ::</h3>
+                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
+                           <thead>       
+                               <tr>
+
+                                  <th>Codigo Monitoria</th>
+                                  <th>Cod. Estudiante Asignado </th>
+
+                                  <!--<th>Password</th>-->
+                               </tr>
+                           </thead>                                        
+                           <tbody>
+                               
+                           <c:forEach var="p" items="${listaEstPMonitoria}"> 
+
+                               <tr>
+                                   <td>${p.getCodMonitoria()}</td>
+                                   <td>${p.getCodEstudiante()}</td>
+                               </tr>
+
+                           </c:forEach>
+
+                           </tbody>
+                       </table>
+
+                   </div>
                 <div class="table-responsive">   
                        <h3>:: Validación Curso Visto ::</h3>
                        <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
@@ -215,7 +243,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                        </table>
 
                    </div> 
-                        
+                    <div class="signin-form profile">
+                        <a href="inscripcion.htm">${message}</a>
+                     <p>${messag}</p>  
+                    </div>
                 </div>
                 
                 

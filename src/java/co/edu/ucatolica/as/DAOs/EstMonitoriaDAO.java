@@ -16,5 +16,6 @@ import java.util.ArrayList;
 public interface EstMonitoriaDAO {
     
     public ArrayList<Est_monitoria> monitoriaEstMon(Est_monitoria c, Connection con);
+    public ArrayList<Est_monitoria> monitoriaPos(Est_monitoria em, Connection con);
     
 }

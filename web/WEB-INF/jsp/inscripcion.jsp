@@ -78,7 +78,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<li class="active"><a href="#" class="dropdown-toggle hvr-sweep-to-bottom" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Monitoria<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Inscripcion</a></li>
-                                
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Descuento</a></li>
+                                <li><a class="hvr-sweep-to-bottom" href="monitoriaIngreso.htm">Contrato</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -91,132 +92,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //header -->
 	<!-- about-heading -->
 	<div class="about-heading">
-		<h2><span>Validación </span> Monitorias <span> Pregrado </span></h2>
+		<h2><span>Registro </span> Monitorias</h2>
 	</div>
 	<!-- //about-heading -->
         
         <div class="registration">
             <div class="container">
                 <div class="signin-form profile">
-                    <h3>::Validación datos Monitoria::</h3>
+                    <h3>::Registro Monitoria::</h3>
                     
                     <div class="login-form">
                         <form action="monitoriaValidacionForm.htm" method="post">
                             
                                 <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
-                                <input type="text" name="codCurso" placeholder="Codigo del Curso" required>
+                                
                                 <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required> 
-                                <input type="password" name="password" placeholder="Contraseña" required>
-                                <input type="submit" value="VALIDAR">
+                                
+                                <input type="submit" value="REGISTRAR MONITOR">
                         </form>
-                            
-                            
-                        
-                        
+  
                     </div>
-                    <p>${mj}</p>
-                    <p>${msj}</p>
-                    <p>${m}</p>
-                </div>
-                <div class="table-responsive">   
-                       <h3>:: Validación Monitoria ::</h3>
-                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
-                           <thead>       
-                               <tr>
-
-                                  <th>Codigo Monitoria</th>
-                                  <th>Cod. Estudiante Asignado </th>
-
-                                  <!--<th>Password</th>-->
-                               </tr>
-                           </thead>                                        
-                           <tbody>
-                               
-                           <c:forEach var="p" items="${listaEstMonitoria}"> 
-
-                               <tr>
-                                   <td>${p.getCodMonitoria()}</td>
-                                   <td>${p.getCodEstudiante()}</td>
-                               </tr>
-
-                           </c:forEach>
-
-                           </tbody>
-                       </table>
-                       
-                   </div> 
-                <div class="table-responsive">   
-                       <h3>:: Validación Curso Visto ::</h3>
-                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
-                           <thead>       
-                               <tr>
-
-                                  <th>Codigo Estudiante </th>
-                                  <th>Nombre Estudiante </th>
-                                  <th>Codigo Curso </th>
-                                  <th>Nombre Curso </th>
-                                  
-                               </tr>
-                           </thead>                                        
-                           <tbody>
-                               
-                           <c:forEach var="p" items="${listaEstCurso}"> 
-                           <c:forEach var="e" items="${listaEstudiante}"> 
-                           <c:forEach var="c" items="${listaCurso}"> 
-
-                               <tr>
-                                   <td>${p.getCodEstudiante()}</td>
-                                   <td>${e.getNomEstudiante()}</td>
-                                   <td>${p.getCodCurso()}</td>
-                                   <td>${c.getNomCurso()}</td>
-                                   
- 
-                               </tr>
-
-                           </c:forEach>
-                           </c:forEach>
-                           </c:forEach>
-
-                           </tbody>
-                       </table>
-
-                   </div> 
                     
-     
-                    <div class="table-responsive">   
-                       <h3>:: Validación Nota ::</h3>
-                       <table id="tablaResultado" class="table table-striped table-hover table-bordered" >
-                           <thead>       
-                               <tr>
-
-                                  <th>Codigo Estudiante </th>
-                                  <th>Nota Curso </th>
-                                  <th>Codigo Curso </th>
-                                  
-                                  
-                               </tr>
-                           </thead>                                        
-                           <tbody>
-                               
-                           <c:forEach var="p" items="${listaEstCursoP}"> 
-                           
-
-                               <tr>
-                                   <td>${p.getCodEstudiante()}</td>
-                                   <td>${p.getNotaCurso()}</td>
-                                   <td>${p.getCodCurso()}</td>
-                                 
-
-                           </c:forEach>
-                          
-
-                           </tbody>
-                       </table>
-
-                   </div> 
+                </div>
+                    <p>${mensaje}</p>
                     <div class="signin-form profile">
-                        <a href="monitoriaIngreso.htm">${message}</a>
-                     <p>${messag}</p>  
+                        <a href="monitoriaIngreso.htm"><input type="submit" value="INICIO"></a>
                     </div>
                 </div>
                 
