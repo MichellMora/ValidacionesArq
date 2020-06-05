@@ -267,7 +267,7 @@ public class PersonaControllers implements Controller {
     public String processSubmit20(HttpServletRequest req, SessionStatus status,ModelMap model) 
     {      
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.INFO, "Ejecutando processSubmit2...");
-        return "monitorias";
+        return "inicio2";
     } 
     
     @RequestMapping(method = RequestMethod.POST, value = "monitoriaIngresoForm.htm")
@@ -364,10 +364,10 @@ public class PersonaControllers implements Controller {
         
         model.put("listaEstMonitoria", datosEM);
         if (datosEM.size() > 0)
-            model.put("msj", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
+            model.put("mj", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
             
         else
-            model.put("msj", "La materia no tiene monitor asignado, puedes continuar");
+            model.put("mj", "La materia no tiene monitor asignado, puedes continuar");
         
         return "monitorias";
     }  
@@ -394,11 +394,11 @@ public class PersonaControllers implements Controller {
         String escur = req.getParameter("codEstudiante");
         String epcur = req.getParameter("codEstudiante");
         String ecur = req.getParameter("codCurso");
-       
+        
         String ident = req.getParameter("codEstudiante");
         String cur = req.getParameter("codCurso");
         
-        
+       
         Est_curso ec = new Est_curso();
         Estudiante e = new Estudiante();
         Curso c = new Curso();
@@ -426,6 +426,30 @@ public class PersonaControllers implements Controller {
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + ident + "-" + datosE.size());
         Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + cur + "-" + datosE.size());
         
+        EstMonitoriaMySQLDAO emDao = new EstMonitoriaMySQLDAO();
+        Logger.getLogger(EstMonitoriaMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando processSubmit3...");
+    
+        String esmon = req.getParameter("codMonitoria");
+        
+        Est_monitoria em = new Est_monitoria();
+       
+        em.setCodMonitoria(esmon);
+    
+        List<Est_monitoria> datosEM = emDao.monitoriaEstMon(em, MySqlDataSource.getConexionBD());
+
+        
+        Logger.getLogger(PersonaControllers.class.getName()).log(Level.SEVERE, null, "Consultar + " + esmon + "-" + datosEM.size());
+        
+        
+        model.put("listaEstMonitoria", datosEM);
+        if (datosEM.size() > 0)
+            model.put("mj", "Lo sentimos, esta materia ya tiene monitor, intenta con otro curso");
+            
+        else
+            model.put("mj", "La materia no tiene monitor asignado, puedes continuar");
+        
+        
+        
         
         
         model.put("listaEstudiante", datosE);
@@ -440,15 +464,23 @@ public class PersonaControllers implements Controller {
             
         else
             model.put("mensaje", "No se pudo ejecutar la solicitud");
-        
+
         model.put("listaEstCursoP", datosEP);
         
+
             if (datosEP.size() > 0)
+               
                 model.put("m", "Se pudo ejecutar la solicitud ");
-                
-            else
-                model.put("m", "No se pudo ejecutar la solicitud");
-  
+            else          
+                model.put("m", "Se pudo ejecutar la solicitud ");
+            
+            
+            /*if ((ecur.equals(datosEP.get(0))))
+                    model.put("m", "ok ");
+                else
+                    model.put("m", "no "); }    */
+           
+            
         model.put("listaEstCurso", datosEC);
         model.put("listaEstCurso", datosES);
         if (datosEC.size() > 0)

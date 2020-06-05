@@ -92,7 +92,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //header -->
 	<!-- about-heading -->
 	<div class="about-heading">
-		<h2><span>Validación </span> Monitorias <span> Pregrado </span></h2>
+            <h2><span>Validación </span> Monitorias <span> Posgrado </span></h2>
 	</div>
 	<!-- //about-heading -->
         
@@ -106,8 +106,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             
                                 <input type="text" name="codEstudiante" placeholder="Codigo del Estudiante" required>
                                 <input type="text" name="codCurso" placeholder="Codigo del Curso" required>
-                                <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required> 
-                                <input type="password" name="password" placeholder="Contraseña" required>
+                                <input type="text" name="codMonitoria" placeholder="Codigo de la monitoria" required>
+                                <input type="password" name="password" placeholder="Codigo de la monitoria" required>
                                 <input type="submit" value="VALIDAR">
                         </form>
                             

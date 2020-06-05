@@ -72,6 +72,7 @@ public class EstCursoMySQLDAO {
         ArrayList<Est_curso> datosEP = new ArrayList();
         
         
+        
         Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso...");
         
         /*String codCurso = null;
@@ -88,10 +89,12 @@ public class EstCursoMySQLDAO {
             { 
                 Est_curso epcur = new Est_curso();
                 
+                
                 epcur.setId(rs.getInt(1));
                 epcur.setCodEstudiante(rs.getString(2));
                 epcur.setCodCurso(rs.getString(3)); 
                 epcur.setNotaCurso(rs.getFloat(4));
+                
                 /*est.setCodEstudiante(rs.getString(1));
                 est.setNomEstudiante(rs.getString(2));
                 est.setCodCurso(rs.getString(3));
@@ -99,9 +102,11 @@ public class EstCursoMySQLDAO {
                 
                 datosEP.add(epcur);
                 
+                
             }
             
             Logger.getLogger(EstCursoMySQLDAO.class.getName()).log(Level.INFO, "Ejecutando consultarCurso fin...{0}", datosEP.size());
+            
             
             con.close();
         } catch (SQLException ex) {
@@ -110,6 +115,7 @@ public class EstCursoMySQLDAO {
         
         
         return datosEP;
+        
        
     }
     

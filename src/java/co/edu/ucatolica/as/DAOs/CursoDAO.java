@@ -16,5 +16,5 @@ import java.util.ArrayList;
 public interface CursoDAO {
     
     public ArrayList<Curso> monitoriaCur(Curso c, Connection con);
-    
+    public ArrayList<Curso> monitCur(Curso c, Connection con);
 }
